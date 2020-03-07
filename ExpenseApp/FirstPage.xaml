@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ExpenseApp.FirstPage"
+             Title="First Page">
+
+    <StackLayout Margin="10,35,10,10">
+        <StackLayout>
+            <Editor x:Name="editor" Text="Month" Placeholder="Enter month"/>
+
+        </StackLayout>
+        <StackLayout>
+            <Button Text="Set Budget"
+                        Clicked="OnSetButton_Clicked"/>
+
+
+        </StackLayout>
+
+
+
+    </StackLayout>
+</ContentPage>
+    

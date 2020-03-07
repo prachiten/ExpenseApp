@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ExpenseApp
+
+# Xamarin Build/test output
+[Bb]in/
+[Oo]bj/
+
+*.user 
