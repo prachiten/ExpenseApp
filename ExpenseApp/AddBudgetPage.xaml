@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ExpenseApp.Model"
+             mc:Ignorable="d"
+             x:Class="ExpenseApp.AddBudgetPage">
+    <ContentPage.BindingContext>
+        <local:Budget/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="entry"
+               Text="{Binding MonthlyPlan}"
+               Placeholder="Enter your monthly budget"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Save"
+                    Clicked="OnSaveButtonClicked"/>
+                <Button Grid.Column="1"
+                    Text="Cancel"
+                    Clicked="OnCancelButtonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ExpenseApp.EntryPage"
+             Title="My Expenses">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Clicked=""/>
+    </ContentPage.ToolbarItems>
+    <!--<ContentPage.BindingContext>
+        <local:Budget/>
+    </ContentPage.BindingContext>-->
+
+    <ContentView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Picker></Picker>
+            <Label Text="Budget" FontSize="18" Grid.Row="1" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+            <Button Text="&#xE70F;" Clicked="OnBudgetAddedClicked" WidthRequest="44" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start"/>
+            <Label Text="{Binding MonthlyLeft}" Grid.Column="2" Grid.Row="1" VerticalTextAlignment="Center" HorizontalOptions="End"/>
+            <Label Text="Left" Grid.Column="3" Grid.Row="1" VerticalTextAlignment="Center"/>
+            <Grid Grid.Row="2" Grid.ColumnSpan="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Planned" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding MonthlyPlan,Mode=TwoWay}" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center"/>
+                <Label Text="Actual" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding MonthlyActual}" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center"/>
+                <Label Text="Left" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding MonthlyLeft}" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center"/>
+            </Grid>
+            
+            <!--for test purposes, just comment it-->
+            <!--<Entry Text="{Binding MonthlyPlan}" Grid.Row="1" Grid.ColumnSpan="4"
+                   Placeholder="Input your monthly plan budget"/>-->
+            <!--<Entry Text="{Binding MonthlyActual}" Grid.Row="3" Grid.ColumnSpan="4"
+                   Placeholder="Input your monthly actual budget"/>-->
+        </Grid>
+    </ContentView>
+</ContentPage>
+    

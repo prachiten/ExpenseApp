@@ -6,11 +6,13 @@ namespace ExpenseApp
 {
     public partial class App : Application
     {
+        public static string FolderPath { get; set; }
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new FirstPage());
+            FolderPath = Environment.GetFolderPath(
+                Environment.SpecialFolder.LocalApplicationData);
+            MainPage = new NavigationPage(new EntryPage());
         }
 
         protected override void OnStart()
