@@ -22,9 +22,38 @@ namespace ExpenseApp
             
             BindingContext = viewModel;
 
-            //BindingContext = this;
-            
-            
+            viewModel.Expenses = new ObservableCollection<Expense>();
+            viewModel.Expenses.Add(new Expense
+            {
+                Name = "Housing",
+                Image = "home.png"
+            });
+            viewModel.Expenses.Add(new Expense
+            {
+                Name = "Food",
+                Image = "food.png"
+            });
+            viewModel.Expenses.Add(new Expense
+            {
+                Name = "Transportation",
+                Image = "car.png"
+            });
+            viewModel.Expenses.Add(new Expense
+            {
+                Name = "Utilities",
+                Image = "utilities.png"
+            });
+            viewModel.Expenses.Add(new Expense
+            {
+                Name = "Medical",
+                Image = "medical.png"
+            });
+            viewModel.Expenses.Add(new Expense
+            {
+                Name = "Others",
+                Image = "others.png"
+            });
+
         }
 
         async protected override void OnAppearing()

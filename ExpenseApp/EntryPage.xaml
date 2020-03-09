@@ -88,7 +88,7 @@
                     <Label Text="Envelope" Grid.Column="0" HorizontalTextAlignment="Start" Margin="20,0,0,0" />
                     <Label Text="Spending" Grid.Column="1" HorizontalTextAlignment="Start"/>
                 </Grid>
-                <ListView x:Name="listview" ItemsSource="{Binding expenses,Mode=TwoWay}"
+                <ListView x:Name="listview" ItemsSource="{Binding Expenses,Mode=TwoWay}"
                                   HasUnevenRows="False"
                                   ItemSelected="OnListViewItemSelected"
                                   ItemTapped="OnListViewItemTapped">

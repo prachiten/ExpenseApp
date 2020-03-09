@@ -9,44 +9,22 @@ namespace ExpenseApp
 {
     public class EntryPageViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Expense> expenses { get; set; }
+        private ObservableCollection<Expense> _expenses;
         float monthlyPlan;
         float monthlyActual;
         float monthlyLeft;
 
-        public EntryPageViewModel()
+        public ObservableCollection<Expense> Expenses
         {
-            expenses = new ObservableCollection<Expense>();
-            expenses.Add(new Expense
+            get => _expenses;
+            set
             {
-                Name = "Housing",
-                Image = "home.png"
-            });
-            expenses.Add(new Expense
-            {
-                Name = "Food",
-                Image = "food.png"
-            });
-            expenses.Add(new Expense
-            {
-                Name = "Transportation",
-                Image = "car.png"
-            });
-            expenses.Add(new Expense
-            {
-                Name = "Utilities",
-                Image = "utilities.png"
-            });
-            expenses.Add(new Expense
-            {
-                Name = "Medical",
-                Image = "medical.png"
-            });
-            expenses.Add(new Expense
-            {
-                Name = "Others",
-                Image = "others.png"
-            });
+                if(_expenses != value)
+                {
+                    _expenses = value;
+                    OnPropertyChanged(nameof(Expenses));
+                }
+            }
         }
         public string BudgetFilename { get; set; }
         public float MonthlyPlan
@@ -83,9 +61,9 @@ namespace ExpenseApp
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public virtual void OnPropertyChanged(string money)
+        public virtual void OnPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(money));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
