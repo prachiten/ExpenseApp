@@ -14,6 +14,40 @@ namespace ExpenseApp
         float monthlyActual;
         float monthlyLeft;
 
+        public EntryPageViewModel()
+        {
+            expenses = new ObservableCollection<Expense>();
+            expenses.Add(new Expense
+            {
+                Name = "Housing",
+                Image = "home.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Food",
+                Image = "food.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Transportation",
+                Image = "car.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Utilities",
+                Image = "utilities.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Medical",
+                Image = "medical.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Others",
+                Image = "others.png"
+            });
+        }
         public string BudgetFilename { get; set; }
         public float MonthlyPlan
         {
@@ -53,5 +87,6 @@ namespace ExpenseApp
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(money));
         }
+
     }
 }

@@ -23,45 +23,13 @@ namespace ExpenseApp
             BindingContext = viewModel;
 
             //BindingContext = this;
-            viewModel.expenses = new ObservableCollection<Expense>();
             
-            viewModel.expenses.Add(new Expense
-            {
-                Name = "Housing",
-                Image = "home.png"
-            });
-            viewModel.expenses.Add(new Expense
-            {
-                Name = "Food",
-                Image = "food.png"
-            });
-            viewModel.expenses.Add(new Expense
-            {
-                Name = "Transportation",
-                Image = "car.png"
-            });
-            viewModel.expenses.Add(new Expense
-            {
-                Name = "Utilities",
-                Image = "utilities.png"
-            });
-            viewModel.expenses.Add(new Expense
-            {
-                Name = "Medical",
-                Image = "medical.png"
-            });
-            viewModel.expenses.Add(new Expense
-            {
-                Name = "Others",
-                Image = "others.png"
-            });
+            
         }
 
         async protected override void OnAppearing()
         {
-            base.OnAppearing();
-
-
+            
             var filename = Path.Combine(App.FolderPath,
                     $"budget.txt");
             var hasBudget = File.Exists(filename);
@@ -81,6 +49,7 @@ namespace ExpenseApp
                 viewModel.BudgetFilename = filename;
                 viewModel.MonthlyPlan = float.Parse(File.ReadAllText(filename));
             }
+            base.OnAppearing();
 
         }
 
