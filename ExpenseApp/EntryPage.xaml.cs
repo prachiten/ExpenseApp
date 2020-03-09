@@ -14,10 +14,43 @@ namespace ExpenseApp
     public partial class EntryPage : ContentPage
     {
         Budget budget = new Budget();
+        public List<Expense> expenses { get; private set; }
         public EntryPage()
         {
             InitializeComponent();
             BindingContext = budget;
+            expenses = new List<Expense>();
+            expenses.Add(new Expense
+            {
+                Name = "Housing",
+                Image = "home.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Food",
+                Image = "food.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Transportation",
+                Image = "car.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Utilities",
+                Image = "utilities.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Medical",
+                Image = "medical.png"
+            });
+            expenses.Add(new Expense
+            {
+                Name = "Others",
+                Image = "others.png"
+            });
+            BindingContext = this;
         }
 
         async protected override void OnAppearing()
@@ -54,5 +87,46 @@ namespace ExpenseApp
                 BindingContext = new Budget()
             });
         }
+        
+           
+            
+        
+
+
+    private void OnSetButton_Clicked(object sender, EventArgs e)
+    {
+
     }
+
+
+    void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        //Expense selectedItem = e.SelectedItem as Expense;
+    }
+
+    void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        //Expense tappedItem = e.Item as Expense;
+    }
+
+    private void OnAddButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
+  }
+   
+
+    
+     public class Expense
+     {
+        public string Name { get; set; }
+        public string Image { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
+
+     }
 }
