@@ -7,50 +7,54 @@ using System.Threading.Tasks;
 using ExpenseApp.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Collections.ObjectModel;
 
 namespace ExpenseApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EntryPage : ContentPage
     {
-        Budget budget = new Budget();
-        public List<Expense> expenses { get; private set; }
+
+        EntryPageViewModel viewModel = new EntryPageViewModel();
         public EntryPage()
         {
             InitializeComponent();
-            BindingContext = budget;
-            expenses = new List<Expense>();
-            expenses.Add(new Expense
+            
+            BindingContext = viewModel;
+
+            //BindingContext = this;
+            viewModel.expenses = new ObservableCollection<Expense>();
+            
+            viewModel.expenses.Add(new Expense
             {
                 Name = "Housing",
                 Image = "home.png"
             });
-            expenses.Add(new Expense
+            viewModel.expenses.Add(new Expense
             {
                 Name = "Food",
                 Image = "food.png"
             });
-            expenses.Add(new Expense
+            viewModel.expenses.Add(new Expense
             {
                 Name = "Transportation",
                 Image = "car.png"
             });
-            expenses.Add(new Expense
+            viewModel.expenses.Add(new Expense
             {
                 Name = "Utilities",
                 Image = "utilities.png"
             });
-            expenses.Add(new Expense
+            viewModel.expenses.Add(new Expense
             {
                 Name = "Medical",
                 Image = "medical.png"
             });
-            expenses.Add(new Expense
+            viewModel.expenses.Add(new Expense
             {
                 Name = "Others",
                 Image = "others.png"
             });
-            BindingContext = this;
         }
 
         async protected override void OnAppearing()
@@ -74,8 +78,8 @@ namespace ExpenseApp
             // else we can just read the budget from the budget file
             else
             {
-                budget.Filename = filename;
-                budget.MonthlyPlan = float.Parse(File.ReadAllText(filename));
+                viewModel.BudgetFilename = filename;
+                viewModel.MonthlyPlan = float.Parse(File.ReadAllText(filename));
             }
 
         }
@@ -116,17 +120,17 @@ namespace ExpenseApp
   }
    
 
-    
-     public class Expense
-     {
-        public string Name { get; set; }
-        public string Image { get; set; }
+    // move it to Model > Expense.cs
+     //public class Expense
+     //{
+     //   public string Name { get; set; }
+     //   public string Image { get; set; }
 
-        public override string ToString()
-        {
-            return Name;
-        }
+     //   public override string ToString()
+     //   {
+     //       return Name;
+     //   }
 
 
-     }
+     //}
 }
