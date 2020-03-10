@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ExpenseApp.TransactionPage"
+             Title="Transaction Page" >
+    <ContentPage.ToolbarItems>
+         <ToolbarItem Text="Add Expense" Clicked="OnAddanotherExpense_Clicked" />
+    </ContentPage.ToolbarItems>
+       
+    
+    <ContentView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="*"/>
+                     <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+    <Label Grid.Row="1"   Grid.ColumnSpan="1"
+                                    Text="Description Name"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HeightRequest="60"/>
+    <Editor Grid.Row="2"  Grid.ColumnSpan="1"
+                                    Placeholder="Description Name"
+                                    FontAttributes="None"
+                                    IsReadOnly="False"
+                                    HeightRequest="40"/>
+    <Label Grid.Row="3"   Grid.ColumnSpan="1"
+                                    Text="Payee"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HeightRequest="60"/>
+    <Editor Grid.Row="4"  Grid.ColumnSpan="1"
+                                    Placeholder="Payee"
+                                    FontAttributes="None"
+                                    IsReadOnly="False"
+                                    HeightRequest="40"/>
+    <Label Grid.Row="5"  Grid.ColumnSpan="1"
+                                    Text="Amount"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HeightRequest="60"/>
+    <Editor Grid.Row="6" Grid.ColumnSpan="1"
+                                    Placeholder="Amount"
+                                    FontAttributes="None"
+                                    IsReadOnly="False"
+                                    HeightRequest="40"/>
+    <Label Grid.Row="7" Grid.ColumnSpan="1"
+                                    Text="Envelope"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HeightRequest="60"/>
+    <Picker  Grid.Row="8"  Grid.ColumnSpan="1"
+                                    Title="Select Envelope "
+                                    TitleColor="Red"
+                                    WidthRequest="60" >
+        <Picker.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+                <x:String>Housing</x:String>
+                <x:String>Food</x:String>
+                <x:String>Transportation</x:String>
+                <x:String>Utilities</x:String>
+                <x:String>Medical</x:String>
+                <x:String>Others</x:String>
+
+            </x:Array>
+        </Picker.ItemsSource>
+    </Picker>
+
+    <Label Grid.Row="9" Grid.ColumnSpan="1"
+                                    Text="Date"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HeightRequest="60"/>
+    <Editor Grid.Row="10" Grid.ColumnSpan="1"
+                                    Placeholder="Date"
+                                    FontAttributes="None"
+                                    IsReadOnly="False"
+                                    HeightRequest="40"/>
+    <Label Grid.Row="11" Grid.ColumnSpan="1"
+                                    Text="Notes"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HeightRequest="60"/>
+    <Editor Grid.Row="12" Grid.ColumnSpan="1"
+                                    Placeholder="Date"
+                                    FontAttributes="None"
+                                    IsReadOnly="False"
+                                    HeightRequest="40"/>
+
+
+
+    <!--<StackLayout  Grid.Row="13" Grid.ColumnSpan="0">
+                <Grid MinimumHeightRequest="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>-->
+
+    <Button  Grid.Row="13"  Grid.Column="0"
+                                     Text="Save"
+                                     Clicked="OnSaveButton_Clicked_1"
+                                     WidthRequest="100" 
+                                     VerticalOptions="Center"
+                                     BackgroundColor="LightBlue"
+                                     FontAttributes="Bold"
+                                     HorizontalOptions="Start"/>
+    <Button  Grid.Row="13"  Grid.Column="1"
+                                     Text="Cancel"
+                                     Clicked="OnCancelButton_Clicked_2"
+                                     WidthRequest="100" 
+                                     BackgroundColor="LightBlue"
+                                     FontAttributes="Bold"
+                                     VerticalOptions="Center" 
+                                     HorizontalOptions="Start"/>
+
+
+    </Grid>
+    </ContentView>
+</ContentPage>

@@ -16,6 +16,7 @@ namespace ExpenseApp
     {
 
         EntryPageViewModel viewModel = new EntryPageViewModel();
+        TransactionPage transaction = new TransactionPage();
         public EntryPage()
         {
             InitializeComponent();
@@ -111,11 +112,15 @@ namespace ExpenseApp
         //Expense tappedItem = e.Item as Expense;
     }
 
-    private void OnAddButton_Clicked(object sender, EventArgs e)
-    {
+    async void OnAddButton_Clicked(object sender, EventArgs e)
+      {
+          await Navigation.PushAsync(new TransactionPage
+            {
 
+            });
+
+     }
     }
-  }
    
 
     // move it to Model > Expense.cs
