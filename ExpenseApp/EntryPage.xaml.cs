@@ -16,6 +16,7 @@ namespace ExpenseApp
     {
 
         EntryPageViewModel viewModel = new EntryPageViewModel();
+        public ObservableCollection<Expense> expenses { get; private set; }
         TransactionPage transaction = new TransactionPage();
         public EntryPage()
         {
@@ -82,6 +83,36 @@ namespace ExpenseApp
             base.OnAppearing();
 
         }
+        List<Transaction> transaction_list = new List<Transaction>();
+
+        public double totalExpenseByMonthandEnvelop(string Envelope, string thisMonth)
+        {
+            //BindingContext= this;
+            double total = 0.0;
+            List<Transaction> transaction_list = App.ReadAllTransactions();
+            foreach (var T in transaction_list)
+            {
+                if (string.Equals(T.getMonth(), thisMonth) && string.Equals(Envelope, T.Envelope))
+                {
+                    total += (double)T.Amount;
+                }
+            }
+            return total;
+        }
+
+        public List<Transaction> transactionsByMonth(string thisMonth)
+        {
+            //BindingContext= this;
+            List<Transaction> transaction_list = App.ReadAllTransactions();
+            foreach (var T in transaction_list)
+            {
+                if (T.getMonth() == thisMonth)
+                {
+
+                }
+            }
+            return transaction_list;
+        }
 
         async void OnBudgetAddedClicked(object sender, EventArgs e)
         {
@@ -116,11 +147,22 @@ namespace ExpenseApp
       {
           await Navigation.PushAsync(new TransactionPage
             {
-
+                BindingContext = new Transaction()
             });
-
      }
-    }
+
+        private void MonthPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var P = sender as Picker;
+            string month = P.SelectedItem.ToString();
+            int i = 0;
+            foreach (var E in App.ExpenseCategoryString)
+            {
+                var totalExpense = totalExpenseByMonthandEnvelop(E, month);
+                viewModel.Expenses[i].TotalSpending = totalExpense.ToString();
+                i++;
+            }
+        }
    
 
     // move it to Model > Expense.cs
@@ -135,5 +177,5 @@ namespace ExpenseApp
      //   }
 
 
-     //}
+    }
 }
