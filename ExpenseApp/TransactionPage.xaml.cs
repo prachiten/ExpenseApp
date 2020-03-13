@@ -22,6 +22,11 @@ namespace ExpenseApp
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
+
         public async void OnAddanotherExpense_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TransactionPage
@@ -30,14 +35,13 @@ namespace ExpenseApp
             });
         }
 
-
-
         public async void OnSaveButton_Clicked_1(object sender, EventArgs e)
         {
             var T = (Transaction)BindingContext;
             T.Envelope = Picker_E.SelectedItem.ToString();
-            T.WriteToFile();
+            T.WriteToFile(App.transaction_filemane);
             //NavigationPage.CurrentPageProperty;
+            await Navigation.PopAsync();
         }
 
        public async void OnCancelButton_Clicked_2(object sender, EventArgs e)

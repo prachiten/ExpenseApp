@@ -16,54 +16,22 @@ namespace ExpenseApp
     {
 
         EntryPageViewModel viewModel = new EntryPageViewModel();
-        public ObservableCollection<Expense> expenses { get; private set; }
-        TransactionPage transaction = new TransactionPage();
+        
         public EntryPage()
         {
             InitializeComponent();
-            
             BindingContext = viewModel;
 
-            viewModel.Expenses = new ObservableCollection<Expense>();
-            viewModel.Expenses.Add(new Expense
-            {
-                Name = "Housing",
-                Image = "home.png"
-            });
-            viewModel.Expenses.Add(new Expense
-            {
-                Name = "Food",
-                Image = "food.png"
-            });
-            viewModel.Expenses.Add(new Expense
-            {
-                Name = "Transportation",
-                Image = "car.png"
-            });
-            viewModel.Expenses.Add(new Expense
-            {
-                Name = "Utilities",
-                Image = "utilities.png"
-            });
-            viewModel.Expenses.Add(new Expense
-            {
-                Name = "Medical",
-                Image = "medical.png"
-            });
-            viewModel.Expenses.Add(new Expense
-            {
-                Name = "Others",
-                Image = "others.png"
-            });
-
+            viewModel.currentMonth = DateTime.Now.Month;
+            viewModel.expenses = new ObservableCollection<Expense>();
+            viewModel.transactions = new ObservableCollection<Transaction>();
+            listview.ItemsSource = viewModel.expenses;
         }
 
         async protected override void OnAppearing()
         {
-            
-            var filename = Path.Combine(App.FolderPath,
-                    $"budget.txt");
-            var hasBudget = File.Exists(filename);
+            var hasBudget = File.Exists(App.budget_filename);
+            var hasTransaction = File.Exists(App.transaction_filemane);
 
             // if budget file has not been created yet, we shoud input budget first
             if (!hasBudget)
@@ -77,41 +45,23 @@ namespace ExpenseApp
             // else we can just read the budget from the budget file
             else
             {
-                viewModel.BudgetFilename = filename;
-                viewModel.MonthlyPlan = float.Parse(File.ReadAllText(filename));
+                viewModel.MonthlyPlan = float.Parse(File.ReadAllText(App.budget_filename));
+                //below is to test popup page
+                //File.Delete(App.budget_filename);
             }
+
+            if (!hasTransaction)
+            {
+                File.Create(App.transaction_filemane);
+            }else
+            {
+                //read transactions
+                EntryPageViewModel.ReadAllTransactions(viewModel.transactions, App.transaction_filemane);
+                viewModel.UpdateExpenses(viewModel.expenses, viewModel.currentMonth, viewModel.transactions);
+            }
+
+            MonthPicker.SelectedIndex = viewModel.currentMonth - 1;
             base.OnAppearing();
-
-        }
-        List<Transaction> transaction_list = new List<Transaction>();
-
-        public double totalExpenseByMonthandEnvelop(string Envelope, string thisMonth)
-        {
-            //BindingContext= this;
-            double total = 0.0;
-            List<Transaction> transaction_list = App.ReadAllTransactions();
-            foreach (var T in transaction_list)
-            {
-                if (string.Equals(T.getMonth(), thisMonth) && string.Equals(Envelope, T.Envelope))
-                {
-                    total += (double)T.Amount;
-                }
-            }
-            return total;
-        }
-
-        public List<Transaction> transactionsByMonth(string thisMonth)
-        {
-            //BindingContext= this;
-            List<Transaction> transaction_list = App.ReadAllTransactions();
-            foreach (var T in transaction_list)
-            {
-                if (T.getMonth() == thisMonth)
-                {
-
-                }
-            }
-            return transaction_list;
         }
 
         async void OnBudgetAddedClicked(object sender, EventArgs e)
@@ -122,11 +72,6 @@ namespace ExpenseApp
             });
         }
         
-           
-            
-        
-
-
     private void OnSetButton_Clicked(object sender, EventArgs e)
     {
 
@@ -154,28 +99,9 @@ namespace ExpenseApp
         private void MonthPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             var P = sender as Picker;
-            string month = P.SelectedItem.ToString();
-            int i = 0;
-            foreach (var E in App.ExpenseCategoryString)
-            {
-                var totalExpense = totalExpenseByMonthandEnvelop(E, month);
-                viewModel.Expenses[i].TotalSpending = totalExpense.ToString();
-                i++;
-            }
+            int month = P.SelectedIndex+1;
+            viewModel.UpdateExpenses(viewModel.expenses,month, viewModel.transactions);
         }
-   
-
-    // move it to Model > Expense.cs
-     //public class Expense
-     //{
-     //   public string Name { get; set; }
-     //   public string Image { get; set; }
-
-     //   public override string ToString()
-     //   {
-     //       return Name;
-     //   }
-
 
     }
 }

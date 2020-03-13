@@ -8,7 +8,7 @@ namespace ExpenseApp.Model
     {
         public string Name { get; set; }
         public string Image { get; set; }
-        public string TotalSpending { get; set; }
+        public double TotalSpending { get; set; }
         public override string ToString()
         {
             return Name;

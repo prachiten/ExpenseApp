@@ -7,14 +7,13 @@ namespace ExpenseApp.Model
 {
     public class Budget : INotifyPropertyChanged
     {
-        float monthlyPlan;
+        double monthlyPlan;
 
-        float monthlyActual;
+        double monthlyActual;
 
-        float monthlyLeft;
+        double monthlyLeft;
 
-        public string Filename { get; set; }
-        public float MonthlyPlan
+        public double MonthlyPlan
         {
             get => monthlyPlan;
             set
@@ -25,7 +24,7 @@ namespace ExpenseApp.Model
                 OnPropertyChanged(nameof(MonthlyLeft));
             }
         }
-        public float MonthlyActual
+        public double MonthlyActual
         {
             get => monthlyActual;
             set
@@ -37,7 +36,7 @@ namespace ExpenseApp.Model
             }
         }
 
-        public float MonthlyLeft
+        public double MonthlyLeft
         {
             get => monthlyLeft;
             set

@@ -36,7 +36,7 @@
                                     FontAttributes="Bold"
                                     FontSize="Large"
                                     HeightRequest="60"/>
-            <Editor Grid.Row="2"  Grid.ColumnSpan="1"
+            <Entry Grid.Row="2"  Grid.ColumnSpan="1"
                                     x:Name="DescriptionName"
                                     Text ="{Binding DescriptionName}"
                                     Placeholder="Description Name"
@@ -48,7 +48,7 @@
                                     FontAttributes="Bold"
                                     FontSize="Large"
                                     HeightRequest="60"/>
-            <Editor Grid.Row="4"  Grid.ColumnSpan="1"
+            <Entry Grid.Row="4"  Grid.ColumnSpan="1"
                                     x:Name="Payee"
                                     Text="{Binding Payee}"
                                     Placeholder="Payee"
@@ -60,7 +60,7 @@
                                     FontAttributes="Bold"
                                     FontSize="Large"
                                     HeightRequest="60"/>
-            <Editor Grid.Row="6" Grid.ColumnSpan="1"
+            <Entry Grid.Row="6" Grid.ColumnSpan="1"
                                     x:Name="Amount"
                                     Placeholder="Amount"
                                     Text="{Binding Amount}"
@@ -95,7 +95,7 @@
                                     FontAttributes="Bold"
                                     FontSize="Large"
                                     HeightRequest="60"/>
-            <Editor Grid.Row="10" Grid.ColumnSpan="1"
+            <Entry Grid.Row="10" Grid.ColumnSpan="1"
                                     x:Name="Date"
                                     Placeholder="Date (MM/DD/YYYY)"
                                     Text="{Binding Date}"
@@ -107,7 +107,7 @@
                                     FontAttributes="Bold"
                                     FontSize="Large"
                                     HeightRequest="60"/>
-            <Editor Grid.Row="12" Grid.ColumnSpan="1"
+            <Entry Grid.Row="12" Grid.ColumnSpan="1"
                                     x:Name="Notes"
                                     Placeholder="Notes"
                                     Text="{Binding Notes}"

@@ -20,15 +20,13 @@ namespace ExpenseApp
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var budget = (Budget)BindingContext;
-            if (string.IsNullOrWhiteSpace(budget.Filename))
+            if (string.IsNullOrWhiteSpace(App.budget_filename))
             {
-                var filename = Path.Combine(App.FolderPath,
-                    $"budget.txt");
-                File.WriteAllText(filename, budget.MonthlyPlan.ToString());
+                File.WriteAllText(App.budget_filename, budget.MonthlyPlan.ToString());
             }
             else
             {
-                File.WriteAllText(budget.Filename, budget.MonthlyPlan.ToString());
+                File.WriteAllText(App.budget_filename, budget.MonthlyPlan.ToString());
             }
             await Navigation.PopAsync();
         }

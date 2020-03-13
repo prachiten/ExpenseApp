@@ -16,20 +16,26 @@ namespace ExpenseApp
         public string Notes { get; set; }
 
 
-        public string getMonth()
+        public int getMonth()
         {
-            string month = Date.ToString("MMMM");
+            int month = Date.Month;
 
             return month;
         }
 
-        public void WriteToFile()
+        //public void WriteToFile()
+        //{
+        //    //write to file
+        //    string contents = DescriptionName + "," + Payee + "," + Amount + "," + Date + "," + Envelope + "," + Notes;
+        //    File.AppendAllText(App.filename, contents + Environment.NewLine);
+        //}
+
+        public void WriteToFile(string filename)
         {
             //write to file
             string contents = DescriptionName + "," + Payee + "," + Amount + "," + Date + "," + Envelope + "," + Notes;
-            File.AppendAllText(App.filename, contents + Environment.NewLine);
-
-
+            File.AppendAllText(filename, contents + Environment.NewLine);
+            
         }
 
         public void ExtractFromFileRow(string row)
