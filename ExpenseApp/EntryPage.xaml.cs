@@ -103,5 +103,9 @@ namespace ExpenseApp
             viewModel.UpdateExpenses(viewModel.expenses,month, viewModel.transactions);
         }
 
+        private async void Button1_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TransportationPage());
+        }
     }
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace ExpenseApp
 {
     public class Transaction
     {
-
         public string DescriptionName { get; set; }
         public string Payee { get; set; }
         public decimal Amount { get; set; }
@@ -15,7 +15,19 @@ namespace ExpenseApp
         public string Envelope { get; set; }
         public string Notes { get; set; }
 
-
+        /*Rose Notes for Enum creating to pull by category 
+        public CategoryPicker Category { get; set; }
+        public enum CategoryPicker
+        {
+         Housing,
+         Food, 
+         Transporation, 
+         Utilities, 
+         Medical,
+         Others
+        };
+        */
+       
         public int getMonth()
         {
             int month = Date.Month;
@@ -50,9 +62,10 @@ namespace ExpenseApp
             Notes = contents[5];
         }
 
-
-
+        public class GroupedTransaction : ObservableCollection<Transaction>
+        {
+            public string LongName { get; set; }
+            public string ShortName { get; set; }
+        }
     }
-
-
 }
