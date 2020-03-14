@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ExpenseApp"
+             mc:Ignorable="d"
+              xmlns:data="clr-namespace:ExpenseApp"
+              x:Class="ExpenseApp.CategoryPage"
+             Title="Category">
+
+    <ContentPage.BindingContext>
+        <local:EntryPageViewModel>
+        </local:EntryPageViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>
+
+            <ListView ItemsSource="{Binding envelope, Mode=TwoWay}" x:Name="listview">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Editor  Text="{Binding envelope }" AutoSize="TextChanges"/>
+                        </StackLayout>
+
+                    </DataTemplate>
+
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -12,6 +12,7 @@ namespace ExpenseApp
     {
         public ObservableCollection<Expense> expenses { get; set; }
         public ObservableCollection<Transaction> transactions { get; set; }
+        public ObservableCollection<Transaction> envelope { get; set; }
         public Budget budget { get; set; }
         public int currentMonth { get; set; }
 
@@ -145,15 +146,17 @@ namespace ExpenseApp
             }
 
         }
-        public void transactionsByMonth(ObservableCollection<Transaction> transactions, int thisMonth)
+        public ObservableCollection<Transaction>  transactionsByMonth(ObservableCollection<Transaction> transaction_list, int Month, string Envelope)
         {
-            foreach (var T in transactions)
+            envelope  = new ObservableCollection<Transaction>();
+            foreach (var T in transaction_list)
             {
-                if (T.getMonth() == thisMonth)
+                if((T.getMonth() == Month)&& string.Equals(Envelope, T.Envelope))
                 {
-
+                    envelope.Add(T);
                 }
             }
+            return envelope;
             //return transaction_list;
         }
 

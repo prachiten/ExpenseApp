@@ -85,8 +85,9 @@
                                   HasUnevenRows="False"
                                   ItemSelected="OnListViewItemSelected"
                                   ItemTapped="OnListViewItemTapped">
+                    <!--Bind ItemSource to a list of type Expense-->
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Expense">
+                        <DataTemplate x:DataType="data:Expense"><!--Give class name from where property need to be bind-->
                             <ViewCell>
                                 <Grid Padding="10">
                                     <Grid.RowDefinitions>

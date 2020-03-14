@@ -16,6 +16,7 @@ namespace ExpenseApp
     {
 
         EntryPageViewModel viewModel = new EntryPageViewModel();
+        int month;
         
         public EntryPage()
         {
@@ -78,9 +79,14 @@ namespace ExpenseApp
     }
 
 
-    void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+   async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
-        //Expense selectedItem = e.SelectedItem as Expense;
+            //Expense selectedItem = e.SelectedItem as Expense;
+            var val = sender as ListView;
+             string selectedenvelope = val.SelectedItem.ToString();
+            viewModel.transactionsByMonth(viewModel.transactions, month, selectedenvelope);
+            await Navigation.PushAsync(new CategoryPage {BindingContext=new EntryPageViewModel() });
+
     }
 
     void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
@@ -99,7 +105,7 @@ namespace ExpenseApp
         private void MonthPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             var P = sender as Picker;
-            int month = P.SelectedIndex+1;
+            month = P.SelectedIndex+1;
             viewModel.UpdateExpenses(viewModel.expenses,month, viewModel.transactions);
         }
 
