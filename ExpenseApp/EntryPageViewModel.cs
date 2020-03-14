@@ -67,7 +67,7 @@ namespace ExpenseApp
             expenses.Add(new Expense
             {
                 Name = "Housing",
-                Image = "home.png"
+                Image = "house.png"
             });
             expenses.Add(new Expense
             {
@@ -77,7 +77,7 @@ namespace ExpenseApp
             expenses.Add(new Expense
             {
                 Name = "Transportation",
-                Image = "car.png"
+                Image = "transportation.png"
             });
             expenses.Add(new Expense
             {
