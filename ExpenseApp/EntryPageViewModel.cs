@@ -146,9 +146,9 @@ namespace ExpenseApp
             }
 
         }
-        public ObservableCollection<Transaction>  transactionsByMonth(ObservableCollection<Transaction> transaction_list, int Month, string Envelope)
+        public void transactionsByMonth(ObservableCollection<Transaction> transaction_list, int Month, string Envelope, ObservableCollection<Transaction>envelope)
         {
-            envelope  = new ObservableCollection<Transaction>();
+           // envelope  = new ObservableCollection<Transaction>();
             foreach (var T in transaction_list)
             {
                 if((T.getMonth() == Month)&& string.Equals(Envelope, T.Envelope))
@@ -156,7 +156,7 @@ namespace ExpenseApp
                     envelope.Add(T);
                 }
             }
-            return envelope;
+            //return envelope;
             //return transaction_list;
         }
 

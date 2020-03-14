@@ -26,7 +26,9 @@ namespace ExpenseApp
             viewModel.currentMonth = DateTime.Now.Month;
             viewModel.expenses = new ObservableCollection<Expense>();
             viewModel.transactions = new ObservableCollection<Transaction>();
+            viewModel.envelope = new ObservableCollection<Transaction>();
             listview.ItemsSource = viewModel.expenses;
+            
         }
 
         async protected override void OnAppearing()
@@ -84,8 +86,8 @@ namespace ExpenseApp
             //Expense selectedItem = e.SelectedItem as Expense;
             var val = sender as ListView;
              string selectedenvelope = val.SelectedItem.ToString();
-            viewModel.transactionsByMonth(viewModel.transactions, month, selectedenvelope);
-            await Navigation.PushAsync(new CategoryPage {BindingContext=new EntryPageViewModel() });
+            viewModel.transactionsByMonth(viewModel.transactions, month, selectedenvelope,viewModel.envelope);
+            await Navigation.PushAsync(new CategoryPage{ BindingContext=viewModel});
 
     }
 

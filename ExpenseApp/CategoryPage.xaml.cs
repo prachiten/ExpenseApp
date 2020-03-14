@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace ExpenseApp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -14,10 +15,13 @@ namespace ExpenseApp
     {
         public CategoryPage()
         {
-            var viewmodel1 = new EntryPageViewModel();
+            //var viewmodel = new EntryPageViewModel();
             InitializeComponent();
-            this.BindingContext = new EntryPageViewModel();
-            listview.ItemsSource = viewmodel1.envelope;
+           // this.BindingContext = new EntryPageViewModel();
+           
+            listview.ItemsSource = viewmodel.envelope;
+
         }
+        
     }
 }

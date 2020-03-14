@@ -16,13 +16,13 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>
+            <!--<Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>-->
 
             <ListView ItemsSource="{Binding envelope, Mode=TwoWay}" x:Name="listview">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Editor  Text="{Binding envelope }" AutoSize="TextChanges"/>
+                            <Editor  Text="{Binding .}" AutoSize="TextChanges"/>
                         </StackLayout>
 
                     </DataTemplate>
