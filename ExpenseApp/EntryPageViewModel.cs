@@ -146,12 +146,14 @@ namespace ExpenseApp
             }
 
         }
-        public void transactionsByMonth(ObservableCollection<Transaction> transaction_list, int Month, string Envelope, ObservableCollection<Transaction>envelope)
+        public void transactionsByMonth(ObservableCollection<Transaction> transaction_list, int Month, string Envelope, ObservableCollection<Transaction> envelope)
         {
-           // envelope  = new ObservableCollection<Transaction>();
-            foreach (var T in transaction_list)
+            // envelope  = new ObservableCollection<Transaction>();
+            envelope.Clear();
+            foreach (Transaction T in transaction_list)
             {
-                if((T.getMonth() == Month)&& string.Equals(Envelope, T.Envelope))
+                
+                if ((T.getMonth() == Month) && string.Equals(Envelope, T.Envelope))
                 {
                     envelope.Add(T);
                 }
@@ -159,6 +161,7 @@ namespace ExpenseApp
             //return envelope;
             //return transaction_list;
         }
+
 
     }
 }

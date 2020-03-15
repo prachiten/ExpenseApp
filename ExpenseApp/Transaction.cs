@@ -35,12 +35,6 @@ namespace ExpenseApp
             return month;
         }
 
-        //public void WriteToFile()
-        //{
-        //    //write to file
-        //    string contents = DescriptionName + "," + Payee + "," + Amount + "," + Date + "," + Envelope + "," + Notes;
-        //    File.AppendAllText(App.filename, contents + Environment.NewLine);
-        //}
 
         public void WriteToFile(string filename)
         {

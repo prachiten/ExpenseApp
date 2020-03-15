@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,20 @@ namespace ExpenseApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoryPage : ContentPage
     {
-        public CategoryPage()
+        
+        public CategoryPage(EntryPageViewModel viewModel)
         {
-            //var viewmodel = new EntryPageViewModel();
             InitializeComponent();
-           // this.BindingContext = new EntryPageViewModel();
+            BindingContext = viewModel;
+            
+            listview.ItemsSource = viewModel.envelope;
            
-            listview.ItemsSource = viewmodel.envelope;
 
         }
         
+
+
+
+
     }
 }

@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:ExpenseApp.Model"
              mc:Ignorable="d"
-             x:Class="ExpenseApp.AddBudgetPage">
+             x:Class="ExpenseApp.AddBudgetPage"
+             Title="Add Budget">
     <ContentPage.BindingContext>
         <local:Budget/>
     </ContentPage.BindingContext>

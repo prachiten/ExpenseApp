@@ -20,20 +20,15 @@ namespace ExpenseApp
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var budget = (Budget)BindingContext;
-            if (string.IsNullOrWhiteSpace(App.budget_filename))
-            {
-                File.WriteAllText(App.budget_filename, budget.MonthlyPlan.ToString());
-            }
-            else
-            {
-                File.WriteAllText(App.budget_filename, budget.MonthlyPlan.ToString());
-            }
-            await Navigation.PopAsync();
+
+            File.WriteAllText(App.budget_filename, budget.MonthlyPlan.ToString());
+
+            await Navigation.PopToRootAsync();
         }
 
         async void OnCancelButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopToRootAsync();
         }
     }
 }

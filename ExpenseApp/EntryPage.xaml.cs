@@ -16,7 +16,7 @@ namespace ExpenseApp
     {
 
         EntryPageViewModel viewModel = new EntryPageViewModel();
-        int month;
+        //int month;
         
         public EntryPage()
         {
@@ -39,10 +39,10 @@ namespace ExpenseApp
             // if budget file has not been created yet, we shoud input budget first
             if (!hasBudget)
             {
-                //await Navigation.PushAsync(new AddBudgetPage
-                //{
-                //    BindingContext = new Budget()
-                //});
+                await Navigation.PushAsync(new AddBudgetPage
+                {
+                    BindingContext = new Budget()
+                });
                 // TBD this dosen't work
             }
             // else we can just read the budget from the budget file
@@ -84,17 +84,17 @@ namespace ExpenseApp
    async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
             //Expense selectedItem = e.SelectedItem as Expense;
-            var val = sender as ListView;
-             string selectedenvelope = val.SelectedItem.ToString();
-            viewModel.transactionsByMonth(viewModel.transactions, month, selectedenvelope,viewModel.envelope);
-            await Navigation.PushAsync(new CategoryPage{ BindingContext=viewModel});
+            //move to below, OnListViewItemTapped
+        }
 
-    }
-
-    void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
+    async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
     {
-        //Expense tappedItem = e.Item as Expense;
-    }
+            var val = sender as ListView;
+            string selectedenvelope = val.SelectedItem.ToString();
+            viewModel.transactionsByMonth(viewModel.transactions, viewModel.currentMonth, selectedenvelope, viewModel.envelope);
+            var categoryPage = new CategoryPage(viewModel);
+            await Navigation.PushAsync(categoryPage);
+        }
 
     async void OnAddButton_Clicked(object sender, EventArgs e)
       {
@@ -107,8 +107,8 @@ namespace ExpenseApp
         private void MonthPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             var P = sender as Picker;
-            month = P.SelectedIndex+1;
-            viewModel.UpdateExpenses(viewModel.expenses,month, viewModel.transactions);
+            viewModel.currentMonth = P.SelectedIndex+1;
+            viewModel.UpdateExpenses(viewModel.expenses, viewModel.currentMonth, viewModel.transactions);
         }
 
         private async void Button1_Clicked(object sender, EventArgs e)

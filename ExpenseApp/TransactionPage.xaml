@@ -86,7 +86,6 @@
                         <x:String>Utilities</x:String>
                         <x:String>Medical</x:String>
                         <x:String>Others</x:String>
-
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>

@@ -5,25 +5,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:ExpenseApp"
              mc:Ignorable="d"
-              xmlns:data="clr-namespace:ExpenseApp"
-              x:Class="ExpenseApp.CategoryPage"
-             Title="Category">
+             x:Class="ExpenseApp.CategoryPage"
+             Title="Envolope">
 
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <local:EntryPageViewModel>
         </local:EntryPageViewModel>
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     
     <ContentPage.Content>
+       
         <StackLayout>
             <!--<Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>-->
-
-            <ListView ItemsSource="{Binding envelope, Mode=TwoWay}" x:Name="listview">
+            <ListView x:Name="listview">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Editor  Text="{Binding .}" AutoSize="TextChanges"/>
-                        </StackLayout>
+                    <DataTemplate x:DataType="local:Transaction">
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label  Text="{Binding DescriptionName}" />
+                                    <Label Text="{Binding Payee}"/>
+                                    <Label Text="{Binding Amount}"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                           
+                        </ViewCell>
 
                     </DataTemplate>
 
