@@ -17,7 +17,7 @@ namespace ExpenseApp
 
         EntryPageViewModel viewModel = new EntryPageViewModel();
         //int month;
-        public static string month1;
+        public string month1;
         
         public EntryPage()
         {
@@ -98,7 +98,7 @@ namespace ExpenseApp
 
             viewModel.transactionsByMonth(viewModel.transactions, viewModel.currentMonth, selectedenvelope, viewModel.envelope);
 
-            var categoryPage = new CategoryPage(viewModel);
+            var categoryPage = new CategoryPage(viewModel,selectedenvelope,month1);
 
             await Navigation.PushAsync(categoryPage);
 

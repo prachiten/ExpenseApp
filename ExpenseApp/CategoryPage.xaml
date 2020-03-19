@@ -5,8 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:ExpenseApp"
              mc:Ignorable="d"
-             x:Class="ExpenseApp.CategoryPage"
-             Title="Envelope Details">
+             x:Class="ExpenseApp.CategoryPage">
+    
     
     <!--<ContentPage.BindingContext>
         <local:EntryPageViewModel>
@@ -44,6 +44,16 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Delete"
+                  Font="20"
+                  Clicked="OnDeleteButton_Clicked"
+                  WidthRequest="100"
+                   HeightRequest="50"
+                   VerticalOptions="Center"
+                    BackgroundColor="DarkOliveGreen"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Margin="300,300,0,0" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

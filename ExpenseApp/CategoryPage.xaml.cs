@@ -15,18 +15,53 @@ namespace ExpenseApp
     public partial class CategoryPage : ContentPage
     {
 
-        public CategoryPage(EntryPageViewModel viewModel)
-        {
-            InitializeComponent();
-            BindingContext = viewModel;
+        
+           
+            public CategoryPage(EntryPageViewModel viewModel, string selectedenvelope, string month)
+            {
+                InitializeComponent();
+                BindingContext = viewModel;
 
-            listview.ItemsSource = viewModel.envelope;
+                listview.ItemsSource = viewModel.envelope;
+                ToolbarItem item1 = new ToolbarItem
+                {
+                    Text = selectedenvelope + "  Details",
+
+                    Priority = 0,
+                    Order = ToolbarItemOrder.Primary
 
 
-        }
+                };
+                ToolbarItem item2 = new ToolbarItem
+                {
+
+                    Text = month,
+                    Priority = 0,
+                    Order = ToolbarItemOrder.Primary
+
+
+                };
+
+                // "this" refers to a Page object
+                ToolbarItems.Add(item1);
+                ToolbarItems.Add(item2);
+                BindingContext = viewModel;
+
+                listview.ItemsSource = viewModel.envelope;
+
+
+            }
         ListView HeaderList = new ListView()
         {
             Header = "Header",
         };
+        private void OnDeleteButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
+
 }
+       
