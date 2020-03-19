@@ -16,6 +16,7 @@ namespace ExpenseApp
         public Budget budget { get; set; }
         public int currentMonth { get; set; }
 
+       
         public EntryPageViewModel()
         {
             var expenses = initExpenses();

@@ -110,17 +110,7 @@
                                                  WidthRequest="50"
                                                  />
                                     
-                                    <!--<Image Grid.Column="0" 
-                                                 Source="{Binding Image}"
-                                                 Aspect="AspectFit"
-                                                 HeightRequest="32"
-                                                 WidthRequest="50"
-                                                 />
-                                    <Button Grid.Column="1" Text="{Binding Name}"
-                                            FontSize="18"
-                                            HeightRequest="32"
-                                            WidthRequest="150"
-                                            Clicked="Button_Clicked"/>-->
+                                   
                                     <Label Grid.Column="1" 
                                                 Text="{Binding Name}"
                                                 FontAttributes="Bold"
