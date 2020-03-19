@@ -12,7 +12,6 @@
         <local:EntryPageViewModel>
         </local:EntryPageViewModel>
     </ContentPage.BindingContext>-->
-    
     <ContentPage.Content>
 
         <StackLayout>
