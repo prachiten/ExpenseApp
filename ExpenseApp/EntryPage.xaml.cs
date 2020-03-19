@@ -110,10 +110,5 @@ namespace ExpenseApp
             viewModel.currentMonth = P.SelectedIndex+1;
             viewModel.UpdateExpenses(viewModel.expenses, viewModel.currentMonth, viewModel.transactions);
         }
-
-        private async void Button1_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TransportationPage());
-        }
     }
 }

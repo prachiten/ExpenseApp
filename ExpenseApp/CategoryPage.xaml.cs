@@ -14,20 +14,19 @@ namespace ExpenseApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoryPage : ContentPage
     {
-        
+
         public CategoryPage(EntryPageViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
-            
+
             listview.ItemsSource = viewModel.envelope;
-           
+
 
         }
-        
-
-
-
-
+        ListView HeaderList = new ListView()
+        {
+            Header = "Header",
+        };
     }
 }

@@ -7,9 +7,9 @@
              x:Class="ExpenseApp.TransactionPage"
              Title="Transaction Page">
 
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Expense" Clicked="OnAddanotherExpense_Clicked" />
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
     <ContentView>
         <Grid>
             <Grid.RowDefinitions>
@@ -25,42 +25,47 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="85"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="1"   Grid.ColumnSpan="1"
+            <Label Grid.Row="0"     Margin="0,10,0,0" 
+                                    Grid.ColumnSpan="1"
                                     Text="Description Name"
                                     FontAttributes="Bold"
                                     FontSize="Large"
-                                    HeightRequest="60"/>
-            <Entry Grid.Row="2"  Grid.ColumnSpan="1"
+                                    HeightRequest="40"/>
+            <Entry Grid.Row="1"  Grid.ColumnSpan="1"
                                     x:Name="DescriptionName"
                                     Text ="{Binding DescriptionName}"
+                                    Margin="0,-10,0,0" 
                                     Placeholder="Description Name"
                                     FontAttributes="None"
                                     IsReadOnly="False"
                                     HeightRequest="40"/>
-            <Label Grid.Row="3"   Grid.ColumnSpan="1"
+            <Label Grid.Row="2"   Grid.ColumnSpan="1"
                                     Text="Payee"
                                     FontAttributes="Bold"
                                     FontSize="Large"
-                                    HeightRequest="60"/>
-            <Entry Grid.Row="4"  Grid.ColumnSpan="1"
+                                    HeightRequest="40"
+                                    Padding="0"/>
+            <Entry Grid.Row="3"  Grid.ColumnSpan="1"
+                                    Margin="0,-10,0,0" 
                                     x:Name="Payee"
                                     Text="{Binding Payee}"
                                     Placeholder="Payee"
                                     FontAttributes="None"
                                     IsReadOnly="False"
                                     HeightRequest="40"/>
-            <Label Grid.Row="5"  Grid.ColumnSpan="1"
+            <Label Grid.Row="4"  Grid.ColumnSpan="1"
                                     Text="Amount"
                                     FontAttributes="Bold"
                                     FontSize="Large"
-                                    HeightRequest="60"/>
-            <Entry Grid.Row="6" Grid.ColumnSpan="1"
+                                    HeightRequest="40"/>
+            <Entry Grid.Row="5" Grid.ColumnSpan="1"
+                                    Margin="0,-10,0,0" 
                                     x:Name="Amount"
                                     Placeholder="Amount"
                                     Text="{Binding Amount}"
@@ -68,16 +73,17 @@
                                     IsReadOnly="False"
                                     HeightRequest="40"
                                     Keyboard="Numeric"/>
-            <Label Grid.Row="7" Grid.ColumnSpan="1"
+            <Label Grid.Row="6" Grid.ColumnSpan="1" 
                                     Text="Envelope"
                                     FontAttributes="Bold"
                                     FontSize="Large"
-                                    HeightRequest="60"/>
-            <Picker  Grid.Row="8"  Grid.ColumnSpan="1"
+                                    HeightRequest="40"/>
+            <Picker  Grid.Row="7"  Grid.ColumnSpan="1"
+                                    Margin="0,-10,0,0" 
                                     x:Name="Picker_E"
                                     Title="Select Envelope "
-                                    TitleColor="Red"
-                                    WidthRequest="60" >
+                                    TitleColor="Blue"
+                                    WidthRequest="40" >
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Housing</x:String>
@@ -90,24 +96,26 @@
                 </Picker.ItemsSource>
             </Picker>
 
-            <Label Grid.Row="9" Grid.ColumnSpan="1"
+            <Label Grid.Row="8" Grid.ColumnSpan="1"
                                     Text="Date"
                                     FontAttributes="Bold"
                                     FontSize="Large"
-                                    HeightRequest="60"/>
-            <Entry Grid.Row="10" Grid.ColumnSpan="1"
+                                    HeightRequest="40"/>
+            <Entry Grid.Row="9" Grid.ColumnSpan="1"
+                                    Margin="0,-10,0,0" 
                                     x:Name="Date"
                                     Placeholder="Date (MM/DD/YYYY)"
                                     Text="{Binding Date}"
                                     FontAttributes="None"
                                     IsReadOnly="False"
                                     HeightRequest="40"/>
-            <Label Grid.Row="11" Grid.ColumnSpan="1"
+            <Label Grid.Row="10" Grid.ColumnSpan="1"
                                     Text="Notes"
                                     FontAttributes="Bold"
                                     FontSize="Large"
-                                    HeightRequest="60"/>
-            <Entry Grid.Row="12" Grid.ColumnSpan="1"
+                                    HeightRequest="40"/>
+            <Entry Grid.Row="11" Grid.ColumnSpan="1"
+                                    Margin="0,-10,0,0" 
                                     x:Name="Notes"
                                     Placeholder="Notes"
                                     Text="{Binding Notes}"
@@ -124,22 +132,22 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>-->
 
-            <Button  Grid.Row="13"  Grid.Column="0"
+            <Button  Grid.Row="12"  Grid.Column="0"
                                      Text="Save"
                                      Clicked="OnSaveButton_Clicked_1"
                                      WidthRequest="100" 
                                      VerticalOptions="Center"
-                                     BackgroundColor="LightBlue"
+                                     BackgroundColor="LightGray"
                                      FontAttributes="Bold"
-                                     HorizontalOptions="Start"/>
-            <Button  Grid.Row="13"  Grid.Column="1"
+                                     HorizontalOptions="Center"/>
+            <Button  Grid.Row="12"  Grid.Column="1"
                                      Text="Cancel"
                                      Clicked="OnCancelButton_Clicked_2"
                                      WidthRequest="100" 
-                                     BackgroundColor="LightBlue"
+                                     BackgroundColor="LightGray"
                                      FontAttributes="Bold"
                                      VerticalOptions="Center" 
-                                     HorizontalOptions="Start"/>
+                                     HorizontalOptions="Center"/>
 
 
         </Grid>

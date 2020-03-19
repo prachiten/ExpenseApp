@@ -6,37 +6,45 @@
              xmlns:local="clr-namespace:ExpenseApp"
              mc:Ignorable="d"
              x:Class="ExpenseApp.CategoryPage"
-             Title="Envolope">
-
+             Title="Envelope Details">
+    
     <!--<ContentPage.BindingContext>
         <local:EntryPageViewModel>
         </local:EntryPageViewModel>
     </ContentPage.BindingContext>-->
     
     <ContentPage.Content>
-       
+
         <StackLayout>
+
+
             <!--<Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>-->
-            <ListView x:Name="listview">
+            <ListView x:Name="listview" SeparatorColor="Gray">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:Transaction">
                         <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label  Text="{Binding DescriptionName}" />
-                                    <Label Text="{Binding Payee}"/>
-                                    <Label Text="{Binding Amount}"/>
-                                </StackLayout>
-                            </ViewCell.View>
-                           
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>    
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Description" FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="Payee" HorizontalOptions="Center" FontAttributes="Bold" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="Amount" HorizontalOptions="Center" FontAttributes="Bold" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="0" Grid.Column="3" Text="Date" FontAttributes="Bold" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DescriptionName}" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Payee}" HorizontalOptions="Center"  LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Amount, StringFormat='{0:C}'}" HorizontalOptions="Center" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" Grid.Column="3" Text="{Binding Date}"/>
+                            </Grid>
                         </ViewCell>
-
                     </DataTemplate>
-
                 </ListView.ItemTemplate>
-
             </ListView>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
