@@ -88,18 +88,32 @@ namespace ExpenseApp
            // string month1 = selectedItem.ToString();
             //move to below, OnListViewItemTapped
         }
+        async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
 
-    async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
-    {
+        {
+
             var val = sender as ListView;
-            string selectedenvelope = val.SelectedItem.ToString();
-            viewModel.transactionsByMonth(viewModel.transactions, viewModel.currentMonth, selectedenvelope, viewModel.envelope);
-            var categoryPage = new CategoryPage(viewModel,selectedenvelope, month1);
-            string p = month1;
-            await Navigation.PushAsync(categoryPage);
-        }
 
-    async void OnAddButton_Clicked(object sender, EventArgs e)
+            string selectedenvelope = val.SelectedItem.ToString();
+
+            viewModel.transactionsByMonth(viewModel.transactions, viewModel.currentMonth, selectedenvelope, viewModel.envelope);
+
+            var categoryPage = new CategoryPage(viewModel);
+
+            await Navigation.PushAsync(categoryPage);
+
+        }
+        /*async void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
+        {
+                var val = sender as ListView;
+                string selectedenvelope = val.SelectedItem.ToString();
+                viewModel.transactionsByMonth(viewModel.transactions, viewModel.currentMonth, selectedenvelope, viewModel.envelope);
+                var categoryPage = new CategoryPage(viewModel,selectedenvelope, month1);
+                string p = month1;
+                await Navigation.PushAsync(categoryPage);
+            }*/
+
+        async void OnAddButton_Clicked(object sender, EventArgs e)
       {
           await Navigation.PushAsync(new TransactionPage
             {
