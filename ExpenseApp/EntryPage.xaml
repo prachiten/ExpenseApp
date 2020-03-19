@@ -52,11 +52,11 @@
             </Picker>
             <Label Text="Budget" FontSize="18" FontAttributes="Bold" Grid.Row="1" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
             <Button Text="&#xE70F;" Clicked="OnBudgetAddedClicked" WidthRequest="44" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start"/>
-            <Label x:Name="bgtLeftb" Text="{Binding MonthlyLeft}" FontSize="18" Grid.Column="2" Grid.Row="1" VerticalTextAlignment="Center" HorizontalOptions="End"/>
+            <Label x:Name="bgtLeftb" Text="{Binding MonthlyLeft, StringFormat='{0:C}'}" FontSize="18" Grid.Column="2" Grid.Row="1" VerticalTextAlignment="Center" HorizontalOptions="End"/>
             <Label Text="Left" FontSize="18" Grid.Column="3" Grid.Row="1" VerticalTextAlignment="Center"/>
             <Grid Grid.Row="2" Grid.ColumnSpan="4">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="32"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -64,27 +64,28 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Planned" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center"/>
-                <Label x:Name="bgtPlan" Text="{Binding MonthlyPlan}" FontSize="16" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center"/>
-                <Label Text="Actual" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center"/>
-                <Label x:Name="bgtActual" Text="{Binding MonthlyActual}" FontSize="16" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center"/>
-                <Label Text="Left" FontAttributes="Bold" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center"/>
-                <Label x:Name="bgtLeft" Text="{Binding MonthlyLeft}" FontSize="16" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center"/>
+                <Label Text="Planned" FontAttributes="Bold"  HeightRequest="48" FontSize="16"   Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label x:Name="bgtPlan" Text="{Binding MonthlyPlan, StringFormat='{0:C}'}"  FontSize="16" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center"/>
+                <Label Text="Actual" FontAttributes="Bold"  HeightRequest="48" FontSize="16"   Grid.Column="1" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label x:Name="bgtActual" Text="{Binding MonthlyActual, StringFormat='{0:C}'}"   FontSize="16" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center"/>
+                <Label Text="Left" FontAttributes="Bold"  HeightRequest="48" FontSize="16" Grid.Column="2" Grid.Row="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label x:Name="bgtLeft" Text="{Binding MonthlyLeft, StringFormat='{0:C}'}"  FontSize="16" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center"/>
             </Grid>
             
             <StackLayout Margin="0,10,10,0" Grid.Row="3" Grid.ColumnSpan="4">
-                <Grid MinimumHeightRequest="20">
+                <Grid MinimumHeightRequest="32">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="Envelope" FontSize="14" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Start" Margin="20,0,0,0" />
-                    <Label Text="Spending" FontSize="14" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                    <Label Text="Envelope" HeightRequest="48" FontSize="16"  FontAttributes="Bold" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0,0,0" />
+                    <Label Text="Spending" HeightRequest="48" FontSize="16" FontAttributes="Bold" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="-65,0,0,0"/>
                 </Grid>
                 <ListView x:Name="listview" ItemsSource="{Binding expenses,Mode=TwoWay}"
                                   HasUnevenRows="False"
                                   ItemSelected="OnListViewItemSelected"
-                                  ItemTapped="OnListViewItemTapped">
+                                  ItemTapped="OnListViewItemTapped"
+                                  SeparatorColor="LightGray">
                     <!--Bind ItemSource to a list of type Expense-->
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="data:Expense"><!--Give class name from where property need to be bind-->
@@ -107,19 +108,23 @@
                                                  VerticalOptions="Center"
                                                  HeightRequest="32"
                                                  WidthRequest="50"
-                                                 Clicked="Button1_Clicked"/>
+                                                 />
                                     
                                    
                                     <Label Grid.Column="1" 
                                                 Text="{Binding Name}"
                                                 FontAttributes="Bold"
-                                                FontSize="18"
+                                                FontSize="15"
                                                 HeightRequest="32"
                                                 WidthRequest="150"/>
 
-                                    <Label Grid.Column="2"  
-                                    Text="{Binding TotalSpending,Mode=TwoWay}"
+                                    <Label Grid.Column="2"
+                                    Margin="-20,-15,0,0"
+                                    Text="{Binding TotalSpending,Mode=TwoWay,  StringFormat='{0:C}'}"
+                                    FontSize="15"
                                     FontAttributes="Bold" 
+                                    HorizontalTextAlignment="End"
+                                           VerticalTextAlignment="Center"
                                     HeightRequest="60" WidthRequest="100"/>
 
                                 </Grid>

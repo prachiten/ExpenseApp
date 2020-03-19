@@ -15,19 +15,7 @@ namespace ExpenseApp
         public string Envelope { get; set; }
         public string Notes { get; set; }
 
-        /*Rose Notes for Enum creating to pull by category 
-        public CategoryPicker Category { get; set; }
-        public enum CategoryPicker
-        {
-         Housing,
-         Food, 
-         Transporation, 
-         Utilities, 
-         Medical,
-         Others
-        };
-        */
-       
+
         public int getMonth()
         {
             int month = Date.Month;
@@ -60,12 +48,6 @@ namespace ExpenseApp
             Date = DateTime.Parse((contents[3])).Date;
             Envelope = contents[4];
             Notes = contents[5];
-        }
-
-        public class GroupedTransaction : ObservableCollection<Transaction>
-        {
-            public string LongName { get; set; }
-            public string ShortName { get; set; }
         }
     }
 }
