@@ -34,12 +34,18 @@ namespace ExpenseApp
 
             return month;
         }
+        public DateTime getDate(DateTime date)
+        {
+            date = Date.Date;
+
+            return date;
+        }
 
 
         public void WriteToFile(string filename)
         {
             //write to file
-            string contents = DescriptionName + "," + Payee + "," + Amount + "," + Date + "," + Envelope + "," + Notes;
+            string contents = DescriptionName + "," + Payee + "," + Amount + "," + getDate(Date) + "," + Envelope + "," + Notes;
             File.AppendAllText(filename, contents + Environment.NewLine);
             
         }
@@ -51,7 +57,7 @@ namespace ExpenseApp
             DescriptionName = contents[0];
             Payee = contents[1];
             Amount = Decimal.Parse(contents[2]);
-            Date = DateTime.Parse(contents[3]);
+            Date = DateTime.Parse((contents[3])).Date;
             Envelope = contents[4];
             Notes = contents[5];
         }
