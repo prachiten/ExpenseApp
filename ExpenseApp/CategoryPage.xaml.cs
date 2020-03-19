@@ -20,7 +20,8 @@ namespace ExpenseApp
             InitializeComponent();
             ToolbarItem item1 = new ToolbarItem
             {
-                Text = selectedenvelope,
+                Text = selectedenvelope+"  Details",
+               
                 Priority = 0,
                 Order = ToolbarItemOrder.Primary
 
@@ -45,10 +46,10 @@ namespace ExpenseApp
            
 
         }
-        
 
+        private void OnDeleteButton_Clicked(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

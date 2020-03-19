@@ -11,12 +11,12 @@
     <!--<ContentPage.BindingContext>
         <local:EntryPageViewModel>
         </local:EntryPageViewModel>
-    </ContentPage.BindingContext>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{Binding envelope} "/>-->
+    </ContentPage.BindingContext>-->
+    <!--<ContentPage.ToolbarItems>
+       
 
 
-    <!--</ContentPage.ToolbarItems>-->
+    </ContentPage.ToolbarItems>-->
 
     <ContentPage.Content>
       <StackLayout>
@@ -62,44 +62,106 @@
                 <!--Grid.Column="3" 
                                                  Grid.Row="1"/>-->
             <!--</Grid>-->
-            
-            
-                <!--<Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>-->
+            <!--<ListView >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                      <ViewCell>
+                         <ViewCell.View>-->
+                          <StackLayout Orientation="Horizontal">
+                            <Label  Text= "Description" 
+                                               
+                                                FontAttributes="Bold"
+                                                FontSize="Large"
+                                                HeightRequest="32"
+                                                Grid.Column="0"
+                                                WidthRequest="100"
+                                                />
+
+
+                            <Label  Text= "Payee" 
+                                               
+                                                FontAttributes="Bold"
+                                                FontSize="Large"
+                                                HeightRequest="32"
+                                                Grid.Column="1"
+                                                WidthRequest="100"
+                                                />
+                            <Label  Text= "Amount" 
+                                               
+                                                FontAttributes="Bold"
+                                                FontSize="Large"
+                                                HeightRequest="32"
+                                                Grid.Column="2"
+                                                 WidthRequest=" 80 "
+                                                 />
+                            <Label  Text= "Date" 
+                                               
+                                                FontAttributes="Bold"
+                                                FontSize="Large"
+                                                HeightRequest="32"
+                                                Grid.Column="3"
+                                                WidthRequest="100"
+                                                />
+                            
+
+                        </StackLayout>
+
+                            <!--</ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+        
+
+        <!--<Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>-->
             <ListView x:Name="listview">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:Transaction">
                         <ViewCell>
                             <ViewCell.View>
-                                <StackLayout Orientation="Horizontal">
                                 
-                                                                                                          
-                                    <Label  Text="{Binding DescriptionName}" 
+                                <StackLayout Orientation="Horizontal">
+
+                                   
+
+                                    <Entry  Text="{Binding DescriptionName}" 
                                                
-                                                FontAttributes="Bold"
+                                                FontAttributes="None"
                                                 FontSize="20"
                                                 HeightRequest="32"
                                                 Grid.Column="0"
+                                                 WidthRequest="100"
+                                                
                                                 />
-                                            <Label Text="{Binding Payee}"
+                                   
+                                                
+                                                
+                                    <Entry Text="{Binding Payee}"
                                                
-                                               FontAttributes="Bold"
+                                               FontAttributes="None"
                                                 FontSize="20"
                                                 HeightRequest="32"
                                                 Grid.Column="1"
+                                                WidthRequest="100"
                                                 />
-                                            <Label Text="{Binding Amount}"
+                                  
+                                    <Entry Text="{Binding Amount}"
                                                 
-                                                FontAttributes="Bold"
+                                                FontAttributes="None"
                                                 FontSize="20"
                                                 Grid.Column="2"
                                                 HeightRequest="32"
+                                                WidthRequest="80"
                                                 />
-                                            <Label Text="{Binding Date.Date}"
+                                    
+                                    <Entry Text="{Binding Date.Date}"
                                                
-                                                FontAttributes="Bold"
+                                                FontAttributes="None"
                                                 FontSize="20"
                                                 HeightRequest="32"
                                                 Grid.Column="3"
+                                                WidthRequest="100"
                                                />
                                    
                                     </StackLayout>
@@ -108,6 +170,17 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-   </StackLayout>
+            <Button Text="Delete"
+                  Font="20"
+                  Clicked="OnDeleteButton_Clicked"
+                  WidthRequest="100"
+                   HeightRequest="50"
+                   VerticalOptions="Center"
+                    BackgroundColor="DarkOliveGreen"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Margin="300,300,0,0" />
+
+        </StackLayout>
  </ContentPage.Content>
 </ContentPage>
