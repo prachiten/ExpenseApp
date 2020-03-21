@@ -50,7 +50,7 @@ namespace ExpenseApp
             Notes = contents[5];
         }
 
-        public bool Match(Transaction toCompare)
+      /*  public bool Match(Transaction toCompare)
         {
             
 
@@ -80,6 +80,6 @@ namespace ExpenseApp
             }
 
             return true;
-        }
+        }*/
     }
 }

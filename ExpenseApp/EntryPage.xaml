@@ -90,7 +90,7 @@
                             <ViewCell>
                                 <Grid Padding="10">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="48" />
+                                        <RowDefinition Height="48" /> 
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
@@ -117,7 +117,7 @@
 
                                     <Label Grid.Column="2"
                                     Margin="-20,-15,0,0"
-                                    Text="{Binding TotalSpending,Mode=TwoWay,  StringFormat='{0:C}'}"
+                                    Text="{Binding TotalSpending, Mode=TwoWay,  StringFormat='{0:C}'}"
                                     FontSize="15"
                                     FontAttributes="Bold" 
                                     HorizontalTextAlignment="End"

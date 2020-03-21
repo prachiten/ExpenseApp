@@ -162,7 +162,7 @@ namespace ExpenseApp
             //return envelope;
             //return transaction_list;
         }
-       public static void Deleteselectedtransaction(Transaction selecteditem, ObservableCollection<Transaction> transaction_list)
+       /*public static void Deleteselectedtransaction(Transaction selecteditem, ObservableCollection<Transaction> transaction_list)
         {
            foreach(var currentTransaction in transaction_list)
            {
@@ -172,7 +172,7 @@ namespace ExpenseApp
                     return;
                 }
             }
-        }
+        }*/
 
 
     }

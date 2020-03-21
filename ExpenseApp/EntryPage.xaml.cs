@@ -61,7 +61,7 @@ namespace ExpenseApp
             {
                 //read transactions
                 EntryPageViewModel.ReadAllTransactions(viewModel.transactions, App.transaction_filemane);
-                viewModel.UpdateExpenses(viewModel.expenses, viewModel.currentMonth, viewModel.envelope);
+                viewModel.UpdateExpenses(viewModel.expenses, viewModel.currentMonth, viewModel.transactions);
             }
 
             MonthPicker.SelectedIndex = viewModel.currentMonth - 1;
