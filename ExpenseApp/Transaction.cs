@@ -14,7 +14,7 @@ namespace ExpenseApp
         public DateTime Date { get; set; }
         public string Envelope { get; set; }
         public string Notes { get; set; }
-
+        public string Filename { get; set;}
 
         public int getMonth()
         {
@@ -45,7 +45,7 @@ namespace ExpenseApp
             DescriptionName = contents[0];
             Payee = contents[1];
             Amount = Decimal.Parse(contents[2]);
-            Date = DateTime.Parse((contents[3])).Date;
+            Date = DateTime.Parse((contents[3])).Date;  
             Envelope = contents[4];
             Notes = contents[5];
         }

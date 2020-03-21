@@ -45,6 +45,18 @@ namespace ExpenseApp
         {
             await Navigation.PopAsync();
         }
+        async void OnDeleteButtonClicked(object sender, EventArgs e)
+        {
+            var contents = BindingContext as Transaction;
+            if (contents == null)
+                return;
+            if (File.Exists(contents.Filename))
+            {
+                File.Delete(contents.Filename);
+            }
+            await Navigation.PopAsync();
+
+        }
     }
 
 }
