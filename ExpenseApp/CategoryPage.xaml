@@ -18,8 +18,7 @@
 
 
             <!--<Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>-->
-            <ListView x:Name="listview"  
-                                  ItemTapped="OnlistviewItemTapped" SeparatorColor="Gray">
+            <ListView x:Name="listview" SeparatorColor="Gray" ItemSelected="OnListViewItemSelected" SelectedItem="{Binding Transaction}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:Transaction">
                         <ViewCell>
@@ -32,20 +31,20 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>    
                                 </Grid.ColumnDefinitions>
-                                <Label  Grid.Row="0" Grid.Column="0" Text="Description" FontAttributes="Bold"/>
+                                <Label Grid.Row="0" Grid.Column="0" Text="Description" FontAttributes="Bold"/>
                                 <Label Grid.Row="0" Grid.Column="1" Text="Payee" HorizontalOptions="Center" FontAttributes="Bold" LineBreakMode="TailTruncation"/>
                                 <Label Grid.Row="0" Grid.Column="2" Text="Amount" HorizontalOptions="Center" FontAttributes="Bold" LineBreakMode="TailTruncation"/>
                                 <Label Grid.Row="0" Grid.Column="3" Text="Date" FontAttributes="Bold" LineBreakMode="TailTruncation"/>
-                                <Label Grid.Row="1" x:Name="Description" Grid.Column="0" Text="{Binding DescriptionName}" LineBreakMode="TailTruncation"/>
-                                <Label Grid.Row="1" x:Name="Payee" Grid.Column="1" Text="{Binding Payee}" HorizontalOptions="Center"  LineBreakMode="TailTruncation"/>
-                                <Label Grid.Row="1" x:Name="Amount" Grid.Column="2" Text="{Binding Amount, StringFormat='{0:C}'}" HorizontalOptions="Center" LineBreakMode="TailTruncation"/>
-                                <Label Grid.Row="1" x:Name="Date" Grid.Column="3" Text="{Binding Date}"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DescriptionName}" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Payee}" HorizontalOptions="Center"  LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Amount, StringFormat='{0:C}'}" HorizontalOptions="Center" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" Grid.Column="3" Text="{Binding Date}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Delete"
+            <!--<Button Text="Delete"
                   Font="20"
                   Clicked="OnDeleteButton_Clicked"
                   WidthRequest="100"
@@ -54,7 +53,7 @@
                     BackgroundColor="DarkOliveGreen"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
-                    Margin="300,300,0,0" />
+                    Margin="300,300,0,0" />-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

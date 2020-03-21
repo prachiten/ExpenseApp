@@ -14,20 +14,15 @@ namespace ExpenseApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoryPage : ContentPage
     {
-        public ObservableCollection<Transaction> envelope_list;
-        public ObservableCollection<Transaction> thisCategoryList;
 
-        Transaction chosenItem;
-
-
+        
+           
             public CategoryPage(EntryPageViewModel viewModel, string selectedenvelope, string month)
             {
                 InitializeComponent();
                 BindingContext = viewModel;
 
-                thisCategoryList = viewModel.envelope;
-            listview.ItemsSource = thisCategoryList;
-                 envelope_list = viewModel.transactions;
+                listview.ItemsSource = viewModel.envelope;
                 ToolbarItem item1 = new ToolbarItem
                 {
                     Text = selectedenvelope + "  Details",
@@ -56,22 +51,26 @@ namespace ExpenseApp
 
 
             }
-        private void OnDeleteButton_Clicked(object sender, EventArgs e)
+        async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-           // EntryPageViewModel.Deleteselectedtransaction(chosenItem, envelope_list);
-           // EntryPageViewModel.Deleteselectedtransaction(chosenItem, thisCategoryList);
-
+            if (e.SelectedItem != null)
+            {
+                await Navigation.PushAsync(new TransactionPage
+                {
+                    BindingContext = e.SelectedItem as Transaction
+                });
+            }
         }
 
-        private void OnlistviewItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var val = sender as ListView;
-            chosenItem = new Transaction();
+        //Comment it out to illustrate if no other option is left 
 
-            chosenItem = (Transaction) val.SelectedItem;
-            
+        /*
+            private void OnDeleteButton_Clicked(object sender, EventArgs e)
+        {
 
         }
+        */
+
     }
 
 }
