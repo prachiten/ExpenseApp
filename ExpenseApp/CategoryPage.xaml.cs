@@ -56,10 +56,6 @@ namespace ExpenseApp
 
 
             }
-        ListView HeaderList = new ListView()
-        {
-            Header = "Header",
-        };
         private void OnDeleteButton_Clicked(object sender, EventArgs e)
         {
            // EntryPageViewModel.Deleteselectedtransaction(chosenItem, envelope_list);

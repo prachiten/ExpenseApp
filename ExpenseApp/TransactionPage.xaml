@@ -122,16 +122,12 @@
                                     FontAttributes="None"
                                     IsReadOnly="False"
                                     HeightRequest="40"/>
-
-
-
             <!--<StackLayout  Grid.Row="13" Grid.ColumnSpan="0">
                 <Grid MinimumHeightRequest="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>-->
-
             <Button  Grid.Row="12"  Grid.Column="0"
                                      Text="Save"
                                      Clicked="OnSaveButton_Clicked_1"
@@ -148,8 +144,6 @@
                                      FontAttributes="Bold"
                                      VerticalOptions="Center" 
                                      HorizontalOptions="Center"/>
-
-
         </Grid>
     </ContentView>
 
