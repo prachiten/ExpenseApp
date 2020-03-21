@@ -49,5 +49,37 @@ namespace ExpenseApp
             Envelope = contents[4];
             Notes = contents[5];
         }
+
+        public bool Match(Transaction toCompare)
+        {
+            
+
+            if (string.Equals(toCompare.DescriptionName, DescriptionName) == false)
+            {
+                return false;
+            }
+            if (string.Equals(toCompare.Payee, Payee) == false)
+            {
+                return false;
+            }
+            if (string.Equals(toCompare.Envelope, Envelope) == false)
+            {
+                return false;
+            }
+            if (string.Equals(toCompare.Notes, Notes) == false)
+            {
+                return false;
+            }
+            if (DateTime.Equals(toCompare.Date, Date) == false)
+            {
+                return false;
+            }
+            if (toCompare.Amount != Amount)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
