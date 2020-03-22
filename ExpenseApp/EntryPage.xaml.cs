@@ -49,8 +49,6 @@ namespace ExpenseApp
             else
             {
                 viewModel.MonthlyPlan = float.Parse(File.ReadAllText(App.budget_filename));
-                //below is to test if we don't have budget file at first time
-                //File.Delete(App.budget_filename);
             }
             
         }

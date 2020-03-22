@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Text;
 
 namespace ExpenseApp.Model
@@ -49,7 +50,11 @@ namespace ExpenseApp.Model
 
         public Budget()
         {
-
+            if (File.Exists(App.budget_filename))
+            {
+                monthlyPlan = float.Parse(File.ReadAllText(App.budget_filename));
+            }
+            
         }
         public virtual void OnPropertyChanged(string money)
         {

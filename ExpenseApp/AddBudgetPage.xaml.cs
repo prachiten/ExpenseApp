@@ -16,6 +16,7 @@ namespace ExpenseApp
         public AddBudgetPage()
         {
             InitializeComponent();
+            TestButton.IsEnabled = File.Exists(App.budget_filename);
         }
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
@@ -29,6 +30,15 @@ namespace ExpenseApp
         async void OnCancelButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private void TestButton_Clicked(object sender, EventArgs e)
+        {
+
+            File.Delete(App.budget_filename);
+            entry.Text = "";
+            entry.Placeholder = "Plese set the budget first";
+            TestButton.IsEnabled = false;
         }
     }
 }

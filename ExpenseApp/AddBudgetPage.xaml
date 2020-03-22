@@ -27,6 +27,9 @@
                     Text="Cancel"
                     Clicked="OnCancelButtonClicked"/>
             </Grid>
+            <Button x:Name="TestButton" Text="delete budget"
+                    Clicked="TestButton_Clicked"
+                    />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
