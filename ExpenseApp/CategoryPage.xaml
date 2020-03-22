@@ -45,15 +45,13 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Button Text="Delete"
-                  Font="20"
                   Clicked="OnDeleteButton_Clicked"
                   WidthRequest="100"
-                   HeightRequest="50"
                    VerticalOptions="Center"
-                    BackgroundColor="DarkOliveGreen"
+                    BackgroundColor="LightGray"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
-                    Margin="300,300,0,0" />
+                    Margin="300,300,0,20" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
