@@ -23,12 +23,12 @@ namespace ExpenseApp
 
             File.WriteAllText(App.budget_filename, budget.MonthlyPlan.ToString());
 
-            await Navigation.PopToRootAsync();
+            await Navigation.PopAsync();
         }
 
         async void OnCancelButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PopToRootAsync();
+            await Navigation.PopAsync();
         }
     }
 }

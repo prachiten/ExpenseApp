@@ -29,35 +29,40 @@ namespace ExpenseApp
             viewModel.transactions = new ObservableCollection<Transaction>();
             viewModel.envelope = new ObservableCollection<Transaction>();
             listview.ItemsSource = viewModel.expenses;
-            
+            Appearing += (sender, args) => CheckBudget();
+            Appearing += (sender, args) => CheckExpense();
         }
 
-        async protected override void OnAppearing()
+
+        private async void CheckBudget()
         {
             var hasBudget = File.Exists(App.budget_filename);
-            var hasTransaction = File.Exists(App.transaction_filemane);
-
-            // if budget file has not been created yet, we shoud input budget first
             if (!hasBudget)
             {
-                await Navigation.PushAsync(new AddBudgetPage
+                // instead using PushAsync directly, use BeginInvokeOnMainThread will avoid crash
+                Device.BeginInvokeOnMainThread(async () => await Navigation.PushAsync(new AddBudgetPage
                 {
                     BindingContext = new Budget()
-                });
-                // TBD this dosen't work
+                }));
             }
             // else we can just read the budget from the budget file
             else
             {
                 viewModel.MonthlyPlan = float.Parse(File.ReadAllText(App.budget_filename));
-                //below is to test popup page
+                //below is to test if we don't have budget file at first time
                 //File.Delete(App.budget_filename);
             }
+            
+        }
+        private async void CheckExpense()
+        {
+            var hasTransaction = File.Exists(App.transaction_filemane);
 
             if (!hasTransaction)
             {
                 File.Create(App.transaction_filemane);
-            }else
+            }
+            else
             {
                 //read transactions
                 EntryPageViewModel.ReadAllTransactions(viewModel.transactions, App.transaction_filemane);
@@ -65,7 +70,6 @@ namespace ExpenseApp
             }
 
             MonthPicker.SelectedIndex = viewModel.currentMonth - 1;
-            base.OnAppearing();
         }
 
         async void OnBudgetAddedClicked(object sender, EventArgs e)
