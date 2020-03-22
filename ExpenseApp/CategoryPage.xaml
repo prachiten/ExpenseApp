@@ -18,7 +18,7 @@
 
 
             <!--<Editor  Text="{Binding envelope, Mode=TwoWay}" AutoSize="TextChanges"/>-->
-            <ListView x:Name="listview" SeparatorColor="Gray" ItemSelected="OnListViewItemSelected" SelectedItem="{Binding Transaction}">
+            <ListView x:Name="listview" SeparatorColor="Gray">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:Transaction">
                         <ViewCell>

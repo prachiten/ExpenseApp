@@ -51,7 +51,7 @@ namespace ExpenseApp
 
 
             }
-        async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        /*async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
            if (e.SelectedItem != null)
             {
@@ -60,7 +60,7 @@ namespace ExpenseApp
                     BindingContext = e.SelectedItem as Transaction
                 });
             }
-        }
+        */
 
         //Comment it out to illustrate if no other option is left 
 
