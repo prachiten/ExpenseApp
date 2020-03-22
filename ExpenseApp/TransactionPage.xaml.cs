@@ -57,6 +57,13 @@ namespace ExpenseApp
             await Navigation.PopAsync();
 
         }
+
+        private void TransactionDatePicker_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            var contents = BindingContext as Transaction;
+            contents.Date = e.NewDate;
+           // DateLabel.Text = e.NewDate.ToString();
+        }
     }
 
 }
