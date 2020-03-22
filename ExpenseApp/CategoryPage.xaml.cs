@@ -53,23 +53,23 @@ namespace ExpenseApp
             }
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-          /*  if (e.SelectedItem != null)
+           if (e.SelectedItem != null)
             {
                 await Navigation.PushAsync(new TransactionPage
                 {
                     BindingContext = e.SelectedItem as Transaction
                 });
-            }*/
+            }
         }
 
         //Comment it out to illustrate if no other option is left 
 
-        /*
+        
             private void OnDeleteButton_Clicked(object sender, EventArgs e)
         {
 
         }
-        */
+        
 
     }
 

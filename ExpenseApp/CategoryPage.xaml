@@ -44,7 +44,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <!--<Button Text="Delete"
+            <Button Text="Delete"
                   Font="20"
                   Clicked="OnDeleteButton_Clicked"
                   WidthRequest="100"
@@ -53,7 +53,7 @@
                     BackgroundColor="DarkOliveGreen"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
-                    Margin="300,300,0,0" />-->
+                    Margin="300,300,0,0" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

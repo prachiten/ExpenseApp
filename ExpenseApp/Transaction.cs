@@ -15,6 +15,8 @@ namespace ExpenseApp
         public string Envelope { get; set; }
         public string Notes { get; set; }
         public string Filename { get; set;}
+        public Guid guid { get; set; }
+        EntryPageViewModel viewmodel1 = new EntryPageViewModel();
 
         public int getMonth()
         {
@@ -28,13 +30,36 @@ namespace ExpenseApp
 
             return date;
         }
+        public string getguid( string dataguid)
+        {
+            dataguid = guid.ToString();
+            return dataguid;
+        }
 
 
         public void WriteToFile(string filename)
         {
             //write to file
             string contents = DescriptionName + "," + Payee + "," + Amount + "," + getDate(Date) + "," + Envelope + "," + Notes;
-            File.AppendAllText(filename, contents + Environment.NewLine);
+            Transaction newTransaction = new Transaction();
+            newTransaction.DescriptionName = DescriptionName;
+            newTransaction.Payee = Payee;
+            newTransaction.Amount = Amount;
+            newTransaction.Date = getDate(Date);
+            newTransaction.Envelope = Envelope;
+            newTransaction.Notes = Notes;
+
+            bool Found = false;
+            foreach (var t in viewmodel1.transactions)
+            {
+                if (newTransaction.Match(t))
+                {
+                    Found = true;
+                }
+            }
+
+            if (Found == false)
+                File.AppendAllText(filename, contents + Environment.NewLine);
             
         }
 
@@ -50,7 +75,7 @@ namespace ExpenseApp
             Notes = contents[5];
         }
 
-      /*  public bool Match(Transaction toCompare)
+       public bool Match(Transaction toCompare)
         {
             
 
@@ -80,6 +105,6 @@ namespace ExpenseApp
             }
 
             return true;
-        }*/
+        }
     }
 }
