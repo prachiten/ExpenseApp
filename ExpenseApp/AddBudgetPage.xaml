@@ -6,15 +6,16 @@
              xmlns:local="clr-namespace:ExpenseApp.Model"
              mc:Ignorable="d"
              x:Class="ExpenseApp.AddBudgetPage"
-             Title="Add Budget">
+             Title="Budget">
     <ContentPage.BindingContext>
         <local:Budget/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Enter your monthly budget:"/>
             <Entry x:Name="entry"
                Text="{Binding MonthlyPlan}"
-               Placeholder="Enter your monthly budget"/>
+               />
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

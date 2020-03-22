@@ -50,7 +50,7 @@
                 </Picker.ItemsSource>
             </Picker>
             <Label Text="Budget" FontSize="18" FontAttributes="Bold" Grid.Row="1" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-            <Button Text="&#xE70F;" Clicked="OnBudgetAddedClicked" WidthRequest="44" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start"/>
+            <Button Text="Edit" Clicked="OnBudgetAddedClicked" WidthRequest="66" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" FontSize="Micro"/>
             <Label x:Name="bgtLeftb" Text="{Binding MonthlyLeft, StringFormat='{0:C}'}" FontSize="18" Grid.Column="2" Grid.Row="1" VerticalTextAlignment="Center" HorizontalOptions="End"/>
             <Label Text="Left" FontSize="18" Grid.Column="3" Grid.Row="1" VerticalTextAlignment="Center"/>
             <Grid Grid.Row="2" Grid.ColumnSpan="4">
