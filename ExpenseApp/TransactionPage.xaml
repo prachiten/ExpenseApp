@@ -6,17 +6,12 @@
              mc:Ignorable="d"
              x:Class="ExpenseApp.TransactionPage"
              Title="Transaction Page">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem 
-                    Grid.Column="1"
-                    Text="Delete"
-                    Clicked="OnDeleteButtonClicked"/>
-    </ContentPage.ToolbarItems>
 
-    <!--<ContentPage.ToolbarItems>
+
+
+    <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Expense" Clicked="OnAddanotherExpense_Clicked" />
-    </ContentPage.ToolbarItems>-->
+    </ContentPage.ToolbarItems>
     <ContentView>
         <Grid>
             <Grid.RowDefinitions>

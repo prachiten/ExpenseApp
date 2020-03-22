@@ -37,12 +37,13 @@ namespace ExpenseApp
         }
 
 
+
         public void WriteToFile(string filename)
         {
             //write to file
             string contents = DescriptionName + "," + Payee + "," + Amount + "," + getDate(Date) + "," + Envelope + "," + Notes;
-            Transaction newTransaction = new Transaction();
-            newTransaction.DescriptionName = DescriptionName;
+            //Transaction newTransaction = new Transaction();
+            /*newTransaction.DescriptionName = DescriptionName;
             newTransaction.Payee = Payee;
             newTransaction.Amount = Amount;
             newTransaction.Date = getDate(Date);
@@ -58,8 +59,8 @@ namespace ExpenseApp
                 }
             }
 
-            if (Found == false)
-                File.AppendAllText(filename, contents + Environment.NewLine);
+            if (Found == false)*/
+         File.AppendAllText(filename, contents + Environment.NewLine);
             
         }
 

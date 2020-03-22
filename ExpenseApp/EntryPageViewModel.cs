@@ -22,7 +22,6 @@ namespace ExpenseApp
             var expenses = initExpenses();
         }
         double monthlyPlan;
-
         double monthlyActual;
 
         double monthlyLeft;
@@ -162,17 +161,36 @@ namespace ExpenseApp
             //return envelope;
             //return transaction_list;
         }
-       /*public static void Deleteselectedtransaction(Transaction selecteditem, ObservableCollection<Transaction> transaction_list)
+       public void Deleteselectedtransaction(Transaction selecteditem, ObservableCollection<Transaction> transaction_list)
         {
-           foreach(var currentTransaction in transaction_list)
+            //to delete transaction from envelope list beacuse envelope is a filtered list so that we can see immediate effect on page
+            foreach (var currentTransaction in envelope)
+            {
+                if (selecteditem.Match(currentTransaction))
+                {
+                    envelope.Remove(selecteditem);
+                    break;
+                }
+            }
+            foreach (var currentTransaction in transaction_list)
            {
                if (selecteditem.Match(currentTransaction))
                {
                     transaction_list.Remove(currentTransaction);
-                    return;
-                }
+                    break;
+               }
             }
-        }*/
+            
+            File.Delete(App.transaction_filemane);
+            foreach (var transaction in transaction_list)
+            {
+                transaction.WriteToFile(App.transaction_filemane);
+            }
+
+            return;
+
+
+        }
 
 
     }

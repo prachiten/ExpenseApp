@@ -35,6 +35,11 @@ namespace ExpenseApp
         public async void OnSaveButton_Clicked_1(object sender, EventArgs e)
         {
             var T = (Transaction)BindingContext;
+            if (Picker_E.SelectedItem==null)
+            {
+                await DisplayAlert("Alert", "Envelope not selected", "OK");
+                return;
+            }
             T.Envelope = Picker_E.SelectedItem.ToString();
             T.WriteToFile(App.transaction_filemane);
             //NavigationPage.CurrentPageProperty;

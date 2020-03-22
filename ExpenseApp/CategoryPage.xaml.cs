@@ -14,64 +14,64 @@ namespace ExpenseApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoryPage : ContentPage
     {
-
-        
-           
-            public CategoryPage(EntryPageViewModel viewModel, string selectedenvelope, string month)
-            {
-                InitializeComponent();
-                BindingContext = viewModel;
-
-                listview.ItemsSource = viewModel.envelope;
-                ToolbarItem item1 = new ToolbarItem
-                {
-                    Text = selectedenvelope + "  Details",
-
-                    Priority = 0,
-                    Order = ToolbarItemOrder.Primary
+        Transaction chosenitem;
+        EntryPageViewModel obj;
 
 
-                };
-                ToolbarItem item2 = new ToolbarItem
-                {
-
-                    Text = month,
-                    Priority = 0,
-                    Order = ToolbarItemOrder.Primary
-
-
-                };
-
-                // "this" refers to a Page object
-                ToolbarItems.Add(item1);
-                ToolbarItems.Add(item2);
-                BindingContext = viewModel;
-
-                listview.ItemsSource = viewModel.envelope;
-
-
-            }
-        /*async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public CategoryPage(EntryPageViewModel viewModel, string selectedenvelope, string month)
         {
-           if (e.SelectedItem != null)
+            InitializeComponent();
+            BindingContext = viewModel;
+            obj = viewModel;//since viewModel has scope only inside constructor bit we need viewModel obj outside constructor as well
+
+            listview.ItemsSource = viewModel.envelope;
+            ToolbarItem item1 = new ToolbarItem
             {
-                await Navigation.PushAsync(new TransactionPage
-                {
-                    BindingContext = e.SelectedItem as Transaction
-                });
-            }
-        */
+                Text = selectedenvelope + "  Details",
 
-        //Comment it out to illustrate if no other option is left 
+                Priority = 0,
+                Order = ToolbarItemOrder.Primary
 
-        /*
-            private void OnDeleteButton_Clicked(object sender, EventArgs e)
-        {
+
+            };
+            ToolbarItem item2 = new ToolbarItem
+            {
+
+                Text = month,
+                Priority = 0,
+                Order = ToolbarItemOrder.Primary
+
+
+            };
+
+            // "this" refers to a Page object
+            ToolbarItems.Add(item1);
+            ToolbarItems.Add(item2);
+           // BindingContext = viewModel;
+
+           // listview.ItemsSource = viewModel.envelope;
+
 
         }
-        */
+        private void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                chosenitem = (Transaction)listview.SelectedItem;
+            }
+
+        }
+
+        private void OnDeleteButton_Clicked(object sender, EventArgs e)
+        {
+           
+            obj.Deleteselectedtransaction(chosenitem, obj.transactions);
+            //EntryPageViewModel.Deleteselectedtransaction(chosenitem, obj.envelope);
+
+
+        }
 
     }
+  }
 
-}
-       
+
