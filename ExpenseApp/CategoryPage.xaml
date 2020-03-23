@@ -51,7 +51,7 @@
                     BackgroundColor="LightGray"
                     FontAttributes="Bold"
                     HorizontalOptions="Start"
-                    Margin="300,300,0,20" />
+                    Margin="275,80,0,40" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

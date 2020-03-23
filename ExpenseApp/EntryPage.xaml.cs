@@ -53,7 +53,7 @@ namespace ExpenseApp
             }
             if (viewModel.MonthlyPlan == 0)
             {
-                await DisplayAlert("Alert", "Set Monthly Budget as planned Monthly Budget cant be 0.", "OK");
+                await DisplayAlert("Alert", "Set Monthly Budget cannot be 0. Please set your monthly budget.", "OK");
                 return;
             }
 
