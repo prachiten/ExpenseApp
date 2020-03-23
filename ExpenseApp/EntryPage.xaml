@@ -35,7 +35,7 @@
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>January</x:String>
-                        <x:String>Febuary</x:String>
+                        <x:String>February</x:String>
                         <x:String>March</x:String>
                         <x:String>April</x:String>
                         <x:String>May</x:String>

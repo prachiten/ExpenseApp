@@ -38,7 +38,7 @@ namespace ExpenseApp
 
             File.Delete(App.budget_filename);
             entry.Text = "";
-            entry.Placeholder = "Plese set the budget first";
+            entry.Placeholder = "Please set the budget first";
             TestButton.IsEnabled = false;
         }
     }
