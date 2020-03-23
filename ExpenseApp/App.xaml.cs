@@ -25,22 +25,7 @@ namespace ExpenseApp
         }
 
 
-        //read each row in the file, create transaction object for each row content, return the list of all transaction objects
-
-        //public static List<Transaction> ReadAllTransactions()
-        //{
-        //    List<Transaction> all_transactions = new List<Transaction>();
-        //    string[] readText = File.ReadAllLines(filename);
-        //    foreach (string row in readText)
-        //    {
-        //        Transaction T = new Transaction();
-        //        T.ExtractFromFileRow(row);
-        //        all_transactions.Add(T);
-
-        //    }
-        //    return all_transactions;
-        //}
-
+       
 
         protected override void OnStart()
         {
