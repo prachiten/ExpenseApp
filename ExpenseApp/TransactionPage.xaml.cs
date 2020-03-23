@@ -37,7 +37,7 @@ namespace ExpenseApp
             var T = (Transaction)BindingContext;
             if (Picker_E.SelectedItem==null)
             {
-                await DisplayAlert("Alert", "Envelope not selected", "OK");
+                await DisplayAlert("Alert", "Envelope not selected. Please select an envelope.", "OK");
                 return;
             }
             T.Envelope = Picker_E.SelectedItem.ToString();

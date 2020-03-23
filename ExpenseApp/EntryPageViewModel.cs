@@ -26,12 +26,13 @@ namespace ExpenseApp
 
         double monthlyLeft;
 
-        public double MonthlyPlan
+        public  double MonthlyPlan
         {
             get => monthlyPlan;
             set
             {
                 monthlyPlan = value;
+                
                 OnPropertyChanged(nameof(MonthlyPlan));
                 monthlyLeft = monthlyPlan - monthlyActual;
                 OnPropertyChanged(nameof(MonthlyLeft));

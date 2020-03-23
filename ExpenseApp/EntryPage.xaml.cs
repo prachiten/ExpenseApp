@@ -36,6 +36,7 @@ namespace ExpenseApp
 
         private async void CheckBudget()
         {
+           
             var hasBudget = File.Exists(App.budget_filename);
             if (!hasBudget)
             {
@@ -50,7 +51,12 @@ namespace ExpenseApp
             {
                 viewModel.MonthlyPlan = float.Parse(File.ReadAllText(App.budget_filename));
             }
-            
+            if (viewModel.MonthlyPlan == 0)
+            {
+                await DisplayAlert("Alert", "Set Monthly Budget cannot be 0. Please set your monthly budget.", "OK");
+                return;
+            }
+
         }
         private async void CheckExpense()
         {

@@ -21,6 +21,7 @@ namespace ExpenseApp
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var budget = (Budget)BindingContext;
+            
 
             File.WriteAllText(App.budget_filename, budget.MonthlyPlan.ToString());
 
