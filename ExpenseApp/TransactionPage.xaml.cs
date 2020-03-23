@@ -41,7 +41,11 @@ namespace ExpenseApp
                 return;
             }
             T.Envelope = Picker_E.SelectedItem.ToString();
-            T.Date = TransactionDatePicker.Date;
+            if(T.Date == DateTime.MinValue )
+            {
+                T.Date = TransactionDatePicker.Date;
+            }
+            
             T.WriteToFile(App.transaction_filemane);
             //NavigationPage.CurrentPageProperty;
             await Navigation.PopAsync();
