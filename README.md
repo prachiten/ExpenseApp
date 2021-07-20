@@ -1,3 +1,6 @@
 # ExpenseApp
 Tracks monthly expenses
-Video Link:https://www.youtube.com/watch?v=yOoLdnqfcQI&t=2s
+The Backend is built in C# 
+Sets up the Monthly Budget.If monthly budget not set up to zero,it gives a reminder.
+
+Video Link: https://www.youtube.com/watch?v=yOoLdnqfcQI&t=2s
